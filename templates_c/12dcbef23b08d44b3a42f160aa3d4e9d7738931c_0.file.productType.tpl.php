@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-09 18:15:51
+/* Smarty version 3.1.39, created on 2021-10-09 20:54:20
   from '/Applications/XAMPP/xamppfiles/htdocs/alfajores/templates/productType.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6161c037db3f26_50641499',
+  'unifunc' => 'content_6161e55c16f252_97585528',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '12dcbef23b08d44b3a42f160aa3d4e9d7738931c' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/alfajores/templates/productType.tpl',
-      1 => 1633795949,
+      1 => 1633805658,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6161c037db3f26_50641499 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6161e55c16f252_97585528 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender('file:templates/nav.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -33,13 +33,8 @@ $_smarty_tpl->_subTemplateRender('file:templates/nav.tpl', $_smarty_tpl->cache_i
         <section>
             <h3><?php echo $_smarty_tpl->tpl_vars['productType']->value->name;?>
 </h3>
-            <p>
-                <?php echo $_smarty_tpl->tpl_vars['productType']->value->description;?>
- 1x$<?php echo $_smarty_tpl->tpl_vars['productType']->value->price1;?>
- 6x$<?php echo $_smarty_tpl->tpl_vars['productType']->value->price6;?>
- 12x$<?php echo $_smarty_tpl->tpl_vars['productType']->value->price12;?>
-
-            </p>
+            <h4><?php echo $_smarty_tpl->tpl_vars['productType']->value->description;?>
+</h4>
             <ul>
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['products']->value, 'product');

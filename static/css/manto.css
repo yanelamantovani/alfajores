@@ -79,7 +79,7 @@ content li {
     font-size: 1em;
 }
 
-a {
+nav a, .prices a {
     text-decoration: none;
     color: #FFFFFF;
 }
@@ -109,7 +109,6 @@ main {
 }
 
 .content {
-    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -170,11 +169,6 @@ footer ul a, .captcha-msg {
     border-left: 0;
 }
 
-.content .prices table tr:last-child td:last-child {
-    border-bottom: 0;
-    border-right: 0;
-}
-
 .content ul {
     display: grid;
     grid-template-columns: 1fr;
@@ -201,11 +195,22 @@ footer ul a, .captcha-msg {
     margin-bottom: 0.5em;
 }
 
+.content h4 {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+
 .content li h4 {
     font-size: 1.5em;
     width: 100%;
-    color: #FFCC00;
     margin: 0.5em 0;
+}
+
+.content li h4 a {
+    text-decoration: none;
+    color: #FFCC00;
 }
 
 .content li img {

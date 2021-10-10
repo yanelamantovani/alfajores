@@ -14,28 +14,28 @@ class ProductModel {
         return $sentence->fetchAll(PDO::FETCH_OBJ);
     }
 
-    function insertProduct($name, $description, $image, $productTypeId) {
-        $sentence = $this->db->prepare("INSERT INTO product('name','description','image','product_type_id') VALUES(?,?,?,?)");
+    function createProduct($name, $description, $image, $productTypeId) {
+        $sentence = $this->db->prepare("INSERT INTO product(name,description,image,product_type_id) VALUES(?,?,?,?)");
         $sentence->execute(array($name, $description, $image, $productTypeId));
     }
 
     function deleteProduct($productId) {
-        $sentence = $this->db->prepare("DELETE FROM product WHERE 'id' = ?");
+        $sentence = $this->db->prepare("DELETE FROM product WHERE id = ?");
         $sentence->execute(array($productId));
     }
 
     function updateProduct($id, $name, $description, $image, $productTypeId) {
         $sentence = $this->db->prepare("UPDATE product SET 
-                                            'name' = ?, 
-                                            'description' = ?,
-                                            'image' = ?, 
-                                            'product_type_id' = ?,   
-                                        WHERE 'id' = ? ");
+                                            name = ?, 
+                                            description = ?,
+                                            image = ?, 
+                                            product_type_id = ?   
+                                        WHERE id = ? ");
         $sentence->execute(array($name, $description, $image, $productTypeId, $id));
     }
 
     function getProduct($id) {
-        $sentence = $this->db->prepare("SELECT * FROM product WHERE 'id' = ?");
+        $sentence = $this->db->prepare("SELECT * FROM product WHERE id = ?");
         $sentence->execute(array($id));
         return $sentence->fetch(PDO::FETCH_OBJ);
     }

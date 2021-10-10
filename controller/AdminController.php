@@ -1,40 +1,57 @@
 <?php
 
-//require_once './Model/TaskModel.php';
-//require_once './View/TaskView.php';
+require_once './model/ProductTypeModel.php';
+require_once './model/ProductModel.php';
+require_once './view/AdminView.php';
 
 class AdminController {
 
-    // private $model;
-    // private $view;
+    private $productTypeModel;
+    private $productModel;
+    private $view;
 
     function __construct() {
-        //$this->model = new TaskModel();
-        //$this->view = new TaskView();
+        $this->productTypeModel = new ProductTypeModel();
+        $this->productModel = new ProductModel();
+        $this->view = new AdminView();
     }
 
-    function showHome() {
-        //$tasks = $this->model->getTasks();
-        //$this->view->showTasks($tasks);
-        echo "Esto es el home del admin";
+    function showManageProducts($index) {
+        $products = $this->productModel->getProducts();
+        $productTypes = $this->productTypeModel->getProductTypes();
+        $this->view->showManageProducts($products, $productTypes, $index);
     }
 
-    function showProducts() {
-        //$tasks = $this->model->getTasks();
-        //$this->view->showTasks($tasks);
-        echo "Esto es Productos";
+    function showManageProductTypes($index) {
+        $productTypes = $this->productTypeModel->getProductTypes();
+        $this->view->showManageProductTypes($productTypes, $index);
     }
 
-    function showProduct($productId) {
-        //$tasks = $this->model->getTasks();
-        //$this->view->showTasks($tasks);
-        echo "Esto es el Producto " . $productId;
+    function createProduct($productId) {
+        if (is_null($productId)) {
+            $this->productModel->createProduct($_POST['name'], $_POST['description'], $_POST['image'], $_POST['productTypeId']);
+        } else {
+            $this->productModel->updateProduct($productId, $_POST['name'], $_POST['description'], $_POST['image'], $_POST['productTypeId']);
+        }
+        $this->view->goToManageProducts();
     }
 
-    function showProductsByProductType($productType) {
-        //$tasks = $this->model->getTasks();
-        //$this->view->showTasks($tasks);
-        echo "Esto es la categoría " . $productType;
+    function createProductType($productTypeId) {
+        if (is_null($productTypeId)) {
+            $this->productTypeModel->createProductType($_POST['name'], $_POST['description'], $_POST['price1'], $_POST['price6'], $_POST['price12']);
+        } else {
+            $this->productTypeModel->updateProductType($productTypeId, $_POST['name'], $_POST['description'], $_POST['price1'], $_POST['price6'], $_POST['price12']);
+        }
+        $this->view->goToManageProductTypes();
     }
 
+    function deleteProduct($productId) {
+        $this->productModel->deleteProduct($productId);
+        $this->view->goToManageProducts();
+    }
+
+    function deleteProductType($productTypeId) {
+        $this->productTypeModel->deleteProductType($productTypeId);
+        $this->view->goToManageProductTypes();
+    }
 }

@@ -32,9 +32,9 @@ CREATE TABLE `alfajores`.`user` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);
 
-INSERT INTO `alfajores`.`product_type` (`id`, `name`, `description`, `price1`, `price6`, `price12`) VALUES ('1', 'Alfajores Clásicos', 'Alfajores de dos tapas rellenos de dulce y bañados en chocolate.', '75', '420', '750');
-INSERT INTO `alfajores`.`product_type` (`id`, `name`, `description`, `price1`, `price6`, `price12`) VALUES ('2', 'Alfajores Especiales', 'Alfajores de dos tapas con rellenos o coberturas especiales.', '90', '480', '900');
-INSERT INTO `alfajores`.`product_type` (`id`, `name`, `description`, `price1`, `price6`, `price12`) VALUES ('3', 'Conitos', 'Conitos de chocolate rellenos de dulce de leche.', '60', '330', '660');
+INSERT INTO `alfajores`.`product_type` (`id`, `name`, `description`, `price1`, `price6`, `price12`) VALUES ('1', 'Alfajores Clásicos', 'Alfajores de dos tapas rellenos de dulce y bañados en chocolate.', '85', '450', '850');
+INSERT INTO `alfajores`.`product_type` (`id`, `name`, `description`, `price1`, `price6`, `price12`) VALUES ('2', 'Alfajores Especiales', 'Alfajores de dos tapas con rellenos o coberturas especiales.', '100', '550', '1000');
+INSERT INTO `alfajores`.`product_type` (`id`, `name`, `description`, `price1`, `price6`, `price12`) VALUES ('3', 'Conitos', 'Conitos de chocolate rellenos de dulce de leche.', '65', '350', '700');
 
 INSERT INTO `alfajores`.`product` (`id`, `name`, `description`, `image`, `product_type_id`) VALUES ('1', 'Manto Negro', 'Alfajor relleno de dulce de leche bañado en chocolate negro.', 'manto_negro.jpg', '1');
 INSERT INTO `alfajores`.`product` (`id`, `name`, `description`, `image`, `product_type_id`) VALUES ('2', 'Manto Blanco', 'Alfajor relleno de dulce de leche bañado en chocolate blanco.', 'manto_blanco.jpg', '1');
@@ -45,3 +45,4 @@ INSERT INTO `alfajores`.`product` (`id`, `name`, `description`, `image`, `produc
 INSERT INTO `alfajores`.`product` (`id`, `name`, `description`, `image`, `product_type_id`) VALUES ('7', 'Cono Manto', 'Conito relleno de dulce de leche bañado en chocolate.', 'manto_conito.jpg', '3');
 
 INSERT INTO `alfajores`.`user` (`id`, `email`, `password`, `role`) VALUES ('1', 'marisavidal24@hotmail.com.ar', '123456', 'ADMIN');
+//TODO: encriptar password

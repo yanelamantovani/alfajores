@@ -14,7 +14,7 @@ class ProductTypeModel {
         return $sentence->fetchAll(PDO::FETCH_OBJ);
     }
 
-    function insertProductType($name, $description, $price1, $price6, $price12) {
+    function createProductType($name, $description, $price1, $price6, $price12) {
         $sentence = $this->db->prepare("INSERT INTO product_type(name,description,price1,price6,price12) VALUES(?,?,?,?,?)");
         $sentence->execute(array($name, $description, $price1, $price6, $price12));
     }
@@ -30,7 +30,7 @@ class ProductTypeModel {
                                             description = ?,
                                             price1 = ?, 
                                             price6 = ?,   
-                                            price12 = ?,   
+                                            price12 = ?  
                                         WHERE id = ? ");
         $sentence->execute(array($name, $description, $price1, $price6, $price12, $id));
     }

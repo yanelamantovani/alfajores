@@ -5,9 +5,7 @@
     <article class="content">
         <section>
             <h3>{$productType->name}</h3>
-            <p>
-                {$productType->description} 1x${$productType->price1} 6x${$productType->price6} 12x${$productType->price12}
-            </p>
+            <h4>{$productType->description}</h4>
             <ul>
                 {foreach from=$products item=product}
                     <li>

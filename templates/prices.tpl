@@ -10,7 +10,6 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Descripción</th>
                             <th>x1</th>
                             <th>x6</th>
                             <th>x12</th>
@@ -20,7 +19,6 @@
                         {foreach from=$productTypes item=productType}
                             <tr>
                                 <td><a href="precios/{$productType->name}">{$productType->name}</a></td>
-                                <td>{$productType->description}</td>
                                 <td>{$productType->price1}</td>
                                 <td>{$productType->price6}</td>
                                 <td>{$productType->price12}</td>

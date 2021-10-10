@@ -44,27 +44,31 @@
             }
             break;
         // /admin
-        // case 'admin': 
-        //     switch ($params[1]) {
-        //         case 'home': 
-        //             $adminController->showHome(); 
-        //             break;
-        //         case 'productos':
-        //             if (empty($params[1])) {
-        //                 // /admin/productos Listado de items
-        //                 $adminController->showProducts(); 
-        //             } else {
-        //                 // /productos/{itemId} Detalle de item
-        //                 $adminController->showProduct($params[1]); 
-        //             }
-        //             break;
-        //         case 'precios': 
-        //             $adminTypeController->showPrices(); 
-        //             break;
-        //         default: 
-        //             echo('404 Page not found'); 
-        //             break;
-        //     }
+        case 'admin': 
+            switch ($params[1]) {
+                case 'manageProducts':
+                    $adminController->showManageProducts(isset($params[2]) ? intval($params[2]) : null); 
+                    break;
+                case 'manageProductTypes':
+                    $adminController->showManageProductTypes(isset($params[2]) ? intval($params[2]) : null); 
+                    break;
+                case 'createProduct':
+                    $adminController->createProduct($_POST['id'] !== '' ? $_POST['id'] : null); 
+                    break;
+                case 'createProductType':
+                    $adminController->createProductType($_POST['id'] !== '' ? $_POST['id'] : null); 
+                    break;        
+                case 'deleteProduct':
+                    $adminController->deleteProduct($params[2]); 
+                    break;
+                case 'deleteProductType':
+                    $adminController->deleteProductType($params[2]); 
+                    break;        
+                default: 
+                    echo('404 Page not found'); 
+                    break;
+            }
+            break;
         default: 
             echo('404 Page not found'); 
             break;
