@@ -1,25 +1,24 @@
 {include file='templates/admin/header.tpl'}
-<!-- Contenido -->
 <main id="main">
     <section class="container p-3">
         <h3>{if isset($index)}Modificar {$products[$index -1]->name}{else}Agregar producto{/if}</h3>
-        <form action="admin/createProduct" method="POST" class="row justify-content-md-center gy-5">
+        <form action="admin/createProduct" method="POST" class="row">
             <input type="hidden" name="id" value="{if isset($index)}{$products[$index -1]->id}{/if}">
-            <div class="col-md-auto">
-                <label for="name">Nombre:</label>
-                <input type="text" name="name" id="name" value="{if isset($index)}{$products[$index -1]->name}{/if}" required>
+            <div class="col-md-3 p-3">
+                <label for="name" class="form-label">Nombre:</label>
+                <input type="text" name="name" id="name" class="form-control" value="{if isset($index)}{$products[$index -1]->name}{/if}" required>
             </div>
-            <div class="col-md-auto">
-                <label for="image">Imagen:</label>
-                <input type="text" name="image" id="image" value="{if isset($index)}{$products[$index -1]->image}{/if}" required>
+            <div class="col-md-3 p-3">
+                <label for="image" class="form-label">Imagen:</label>
+                <input type="text" name="image" id="image" class="form-control" value="{if isset($index)}{$products[$index -1]->image}{/if}" required>
             </div>
-            <div class="col-md-auto">
-                <label for="description">Descripción:</label>
-                <input type="text" name="description" id="description" value="{if isset($index)}{$products[$index -1]->description}{/if}" required>
+            <div class="col-md-3 p-3">
+                <label for="description" class="form-label">Descripción:</label>
+                <input type="text" name="description" id="description" class="form-control" value="{if isset($index)}{$products[$index -1]->description}{/if}" required>
             </div>
-            <div class="col-md-auto">
-                <label for="productType">Categoría:</label>
-                <select name="productTypeId">
+            <div class="col-md-3 p-3">
+                <label for="productType" class="form-label">Categoría:</label>
+                <select name="productTypeId" class="form-select">
                     {foreach from=$productTypes item=productType}
                         <option value="{$productType->id}" 
                             {if isset($index) && $products[$index -1]->product_type_id == $productType->id}

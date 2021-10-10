@@ -1,15 +1,25 @@
 {include file='templates/admin/header.tpl'}
-<div class="container row mt-4">
-    <div class="row mt-4">
-        <div class="col-md-4">
-            <h2>Login:</h2>
-            <form class="form-alta" action="admin/verify" method="POST">
-                <input type="text" name="email" id="email" placeholder="E-mail" required>
-                <input type="password" name="password" id="password" placeholder="Password" required>
-                <input type="submit" class="btn btn-primary" value="Login">
-            </form>
-            <h4 class="alert-danger">{$error}</h4>
+<div class="container p-3">
+    <h2>Login:</h2>
+    <form class="row g-3" action="admin/verify" method="POST">
+        <div class="col-md-auto">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" name="email" id="email" class="form-control" required>
         </div>
-    </div>
+        <div class="col-md-auto">   
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password" class="form-control" required>
+        </div>
+        <div class="container">
+            <input type="submit" class="btn btn-primary btn-sm" value="Login" class="form-control">
+        </div>
+        <div class="container">
+            {if $error != null}
+                <div class="alert alert-danger" role="alert">
+                    {$error}
+                </div>
+            {/if}
+        </div>
+    </form>
 </div>
 {include file='templates/admin/footer.tpl'}
