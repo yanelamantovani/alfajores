@@ -1,10 +1,10 @@
 <?php
 
-    //require_once 'db.php';
     require_once 'controller/HomeController.php';
     require_once 'controller/ProductController.php';
     require_once 'controller/ProductTypeController.php';
     require_once 'controller/AdminController.php';
+    require_once 'controller/LoginController.php';
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -20,6 +20,7 @@
     $productController = new ProductController();
     $productTypeController = new ProductTypeController();
     $adminController = new AdminController();
+    $loginController = new LoginController();
 
     switch ($params[0]) {
         case 'home': 
@@ -46,6 +47,15 @@
         // /admin
         case 'admin': 
             switch ($params[1]) {
+                case 'login': 
+                    $loginController->login(); 
+                    break;
+                case 'logout': 
+                    $loginController->logout(); 
+                    break;
+                case 'verify': 
+                    $loginController->verifyLogin(); 
+                    break;
                 case 'manageProducts':
                     $adminController->showManageProducts(isset($params[2]) ? intval($params[2]) : null); 
                     break;
@@ -73,3 +83,8 @@
             echo('404 Page not found'); 
             break;
     }
+
+
+
+
+    

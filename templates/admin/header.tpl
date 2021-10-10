@@ -13,9 +13,11 @@
     <header class="container">
         <nav>
             <h1>MANTO Admin</h1>
-            <ul class="nav nav-tabs">
-                <li class="nav-item"><a href="admin/manageProducts" class="nav-link text-dark {if $active == 'manageProducts'}active{/if}">Administrar Productos</a></li>
-                <li class="nav-item"><a href="admin/manageProductTypes" class="nav-link text-dark {if $active == 'manageProductTypes'}active{/if}">Administrar Categorías</a></li>
-            </ul>
+            {if $active != null}
+                <ul class="nav nav-tabs">
+                    <li class="nav-item"><a href="admin/manageProducts" class="nav-link text-dark {if $active == 'manageProducts'}active{/if}">Administrar Productos</a></li>
+                    <li class="nav-item"><a href="admin/manageProductTypes" class="nav-link text-dark {if $active == 'manageProductTypes'}active{/if}">Administrar Categorías</a></li>
+                </ul>
+            {{/if}}    
         </nav>
     </header>
