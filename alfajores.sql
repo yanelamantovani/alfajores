@@ -44,5 +44,4 @@ INSERT INTO `alfajores`.`product` (`id`, `name`, `description`, `image`, `produc
 INSERT INTO `alfajores`.`product` (`id`, `name`, `description`, `image`, `product_type_id`) VALUES ('6', 'Manto Nueces', 'Alfajor relleno de dulce de leche y nueces bañado en chocolate blanco.', 'manto_nueces.jpg', '2');
 INSERT INTO `alfajores`.`product` (`id`, `name`, `description`, `image`, `product_type_id`) VALUES ('7', 'Cono Manto', 'Conito relleno de dulce de leche bañado en chocolate.', 'manto_conito.jpg', '3');
 
-INSERT INTO `alfajores`.`user` (`id`, `email`, `password`, `role`) VALUES ('1', 'marisavidal24@hotmail.com.ar', '123456', 'ADMIN');
-//TODO: encriptar password
+INSERT INTO `alfajores`.`user` (`id`, `email`, `password`, `role`) VALUES ('1', 'marisavidal24@hotmail.com.ar', '$2y$10$dQQmT0.mxpo0J6HBDLAze.LaYGF50HKr5FQMq20/gbEJUv8nDCReS', 'ADMIN');
