@@ -3,7 +3,7 @@
 class UserModel {
 
     function __construct() {
-        $this->db = new PDO('mysql:host=localhost:3306;'.'dbname=alfajores;charset=utf8','root','root');
+        $this->db = require 'model/DB.php'; 
     }
 
     function getUser($email) {
