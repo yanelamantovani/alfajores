@@ -21,10 +21,9 @@ class ProductTypeController {
         $this->view->showPrices($productTypes);
     }
 
-    function showProductsByProductType($productTypeName) {
-        $productType = $this->productTypeModel->getProductTypeByName($productTypeName);
-        $products = $this->productModel->getProductsByProductType($productType->id);
+    function showProductsByProductType($productTypeId) {
+        $productType = $this->productTypeModel->getProductType($productTypeId);
+        $products = $this->productModel->getProductsByProductType($productTypeId);
         $this->view->showProductType($productType, $products);
     }
-
 }

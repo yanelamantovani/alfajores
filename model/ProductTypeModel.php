@@ -40,10 +40,4 @@ class ProductTypeModel {
         $sentence->execute(array($id));
         return $sentence->fetch(PDO::FETCH_OBJ);
     }
-
-    function getProductTypeByName($name) {
-        $sentence = $this->db->prepare("SELECT * FROM product_type WHERE name = ?");
-        $sentence->execute(array($name));
-        return $sentence->fetch(PDO::FETCH_OBJ);
-    }
 }

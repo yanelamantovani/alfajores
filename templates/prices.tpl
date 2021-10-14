@@ -18,7 +18,7 @@
                     <tbody>
                         {foreach from=$productTypes item=productType}
                             <tr>
-                                <td><a href="precios/{$productType->name}">{$productType->name}</a></td>
+                                <td><a href="precios/{$productType->id}">{$productType->name}</a></td>
                                 <td>{$productType->price1}</td>
                                 <td>{$productType->price6}</td>
                                 <td>{$productType->price12}</td>
