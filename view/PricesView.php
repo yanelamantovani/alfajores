@@ -22,4 +22,15 @@ class PricesView {
         $this->smarty->assign('products', $products);
         $this->smarty->display('templates/productType.tpl');
     }
+
+    function showManageProductTypes($productTypes, $index) {
+        $this->smarty->assign('active', 'manageProductTypes');
+        $this->smarty->assign('productTypes', $productTypes);
+        $this->smarty->assign('index', $index);
+        $this->smarty->display('templates/admin/manageProductTypes.tpl');
+    }
+
+    function goToManageProductTypes() {
+        header("Location: ".BASE_URL."admin/manageProductTypes");
+    }
 }

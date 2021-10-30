@@ -3,7 +3,6 @@
     require_once 'controller/HomeController.php';
     require_once 'controller/ProductController.php';
     require_once 'controller/ProductTypeController.php';
-    require_once 'controller/AdminController.php';
     require_once 'controller/LoginController.php';
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -19,7 +18,6 @@
     $homeController = new HomeController();
     $productController = new ProductController();
     $productTypeController = new ProductTypeController();
-    $adminController = new AdminController();
     $loginController = new LoginController();
 
     switch ($params[0]) {
@@ -57,22 +55,22 @@
                     $loginController->verifyLogin(); 
                     break;
                 case 'manageProducts':
-                    $adminController->showManageProducts(isset($params[2]) ? intval($params[2]) : null); 
+                    $productController->showManageProducts(isset($params[2]) ? intval($params[2]) : null); 
                     break;
                 case 'manageProductTypes':
-                    $adminController->showManageProductTypes(isset($params[2]) ? intval($params[2]) : null); 
+                    $productTypeController->showManageProductTypes(isset($params[2]) ? intval($params[2]) : null); 
                     break;
                 case 'createProduct':
-                    $adminController->createProduct($_POST['id'] !== '' ? $_POST['id'] : null); 
+                    $productController->createProduct(); 
                     break;
                 case 'createProductType':
-                    $adminController->createProductType($_POST['id'] !== '' ? $_POST['id'] : null); 
+                    $productTypeController->createProductType(); 
                     break;        
                 case 'deleteProduct':
-                    $adminController->deleteProduct($params[2]); 
+                    $productController->deleteProduct($params[2]); 
                     break;
                 case 'deleteProductType':
-                    $adminController->deleteProductType($params[2]); 
+                    $productTypeController->deleteProductType($params[2]); 
                     break;        
                 default: 
                     echo('404 Page not found'); 
