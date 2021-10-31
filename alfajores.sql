@@ -32,6 +32,24 @@ CREATE TABLE `alfajores`.`user` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);
 
+CREATE TABLE `alfajores`.`comment` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `comment` VARCHAR(560) NOT NULL,
+  `user_id` INT NOT NULL,
+  `product_id` INT NOT NULL,
+  `rating` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_comment_user_id`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `alfajores`.`user` (`id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT,
+  CONSTRAINT `fk_comment_product_id`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `alfajores`.`product` (`id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT);
+
 INSERT INTO `alfajores`.`product_type` (`id`, `name`, `description`, `price1`, `price6`, `price12`) VALUES ('1', 'Alfajores Clásicos', 'Alfajores de dos tapas rellenos de dulce y bañados en chocolate.', '85', '450', '850');
 INSERT INTO `alfajores`.`product_type` (`id`, `name`, `description`, `price1`, `price6`, `price12`) VALUES ('2', 'Alfajores Especiales', 'Alfajores de dos tapas con rellenos o coberturas especiales.', '100', '550', '1000');
 INSERT INTO `alfajores`.`product_type` (`id`, `name`, `description`, `price1`, `price6`, `price12`) VALUES ('3', 'Conitos', 'Conitos de chocolate rellenos de dulce de leche.', '65', '350', '700');
