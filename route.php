@@ -42,18 +42,21 @@
                 $productTypeController->showProductsByProductType($params[1]); 
             }
             break;
+        case 'login':
+            if (empty($params[1])) {
+                // /login Formularios de login y registro
+                $loginController->showLogin(); 
+            } 
+            break;
+        case 'logout': 
+            $loginController->logout(); 
+            break;
+        case 'verify': 
+            $loginController->verifyLogin(); 
+            break;
         // /admin
         case 'admin': 
-            switch ($params[1]) {
-                case 'login': 
-                    $loginController->login(); 
-                    break;
-                case 'logout': 
-                    $loginController->logout(); 
-                    break;
-                case 'verify': 
-                    $loginController->verifyLogin(); 
-                    break;
+            switch ($params[1]) {  
                 case 'manageProducts':
                     $productController->showManageProducts(isset($params[2]) ? intval($params[2]) : null); 
                     break;

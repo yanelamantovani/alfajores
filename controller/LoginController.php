@@ -12,8 +12,24 @@ class LoginController {
         $this->view = new LoginView();
     }
 
+    function showLogin() {
+        $this->view->showLogin();
+    }
+
     function login() {
         $this->view->showLogin();
+    }
+
+    function signIn() {
+        //Crea la cuenta cuando viene en el POST
+        if (!empty($_POST['email']) && !empty($_POST['password'])){
+        $userEmail = $_POST['email'];
+        $userPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        //Guarda el nuevo usuario en la base de datos
+        $db = new PDO('mysql:host=localhost:3306;'.'dbname=ejemploHashing;charset=utf8','root','root');
+        $query = $db->prepare('INSERT INTO users (email, password) VALUES (? , ?)');
+        $query->execute([$userEmail,$userPassword]);
+        }
     }
 
     function logout() {

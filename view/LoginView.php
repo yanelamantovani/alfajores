@@ -10,11 +10,10 @@ class LoginView {
         $this->smarty = new Smarty();
     }
 
-    function showLogin($error = "") {
-        $this->smarty->assign('title', 'Login');
-        $this->smarty->assign('error', $error);
-        $this->smarty->assign('active', null);
-        $this->smarty->display('templates/admin/login.tpl');
+    function showLogin() {
+        $this->smarty->assign('loggedUsername', null);
+        $this->smarty->assign('highlighted', "login");
+        $this->smarty->display('templates/login.tpl');
     }
 
     function goToManageProducts() {

@@ -11,12 +11,14 @@ class ProductView {
     }
 
     function showProducts($products) {
+        $this->smarty->assign('loggedUsername', null);
         $this->smarty->assign('highlighted', "productos");
         $this->smarty->assign('products', $products);
         $this->smarty->display('templates/products.tpl');
     }
 
     function showProduct($product) {
+        $this->smarty->assign('loggedUsername', null);
         $this->smarty->assign('highlighted', "productos");
         $this->smarty->assign('product', $product);
         $this->smarty->display('templates/product.tpl');

@@ -11,12 +11,14 @@ class PricesView {
     }
 
     function showPrices($productTypes) {
+        $this->smarty->assign('loggedUsername', null);
         $this->smarty->assign('highlighted', "precios");
         $this->smarty->assign('productTypes', $productTypes);
         $this->smarty->display('templates/prices.tpl');
     }
 
     function showProductType($productType, $products) {
+        $this->smarty->assign('loggedUsername', null);
         $this->smarty->assign('highlighted', "precios");
         $this->smarty->assign('productType', $productType);
         $this->smarty->assign('products', $products);

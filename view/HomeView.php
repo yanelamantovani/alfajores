@@ -11,6 +11,7 @@ class HomeView {
     }
 
     function showHome() {
+        $this->smarty->assign('loggedUsername', null);
         $this->smarty->assign('highlighted', "home");
         $this->smarty->display('templates/home.tpl');
     }
