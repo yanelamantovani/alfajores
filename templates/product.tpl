@@ -12,13 +12,13 @@
                     <h5>Dejanos tu calificación y comentario</h5> 
                     <form id="form"> 
                         <div>       
-                            <input type="hidden" id="product_id" name="product_id" value="{$product->id}">
-                            <input type="hidden" id="user_id" name="user_id" value="{$userId}">
-                            <input type="text" id="name" name="name" placeholder="Tu nombre">
-                            <input type="range" min="1" max="5" value="3" class="slider" id="rating" name="rating">
+                            <input type="hidden" id="product_id" name="product_id" value="{$product->id}" required>
+                            <input type="hidden" id="user_id" name="user_id" value="{$userId}" required>
+                            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                            <input type="range" min="1" max="5" value="3" class="slider" id="rating" name="rating" required>
                         </div>
                         <div>    
-                            <textarea id="comment" name="comment" rows="10" cols="30"></textarea>
+                            <textarea id="comment" name="comment" rows="10" cols="30" required></textarea>
                         </div>     
                         <input type="submit">
                     </form>

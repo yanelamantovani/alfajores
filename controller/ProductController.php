@@ -39,6 +39,13 @@ class ProductController {
     function createProduct() {
         $this->authHelper->checkLoggedIn();
         $productId = $_POST['id'] !== '' ? $_POST['id'] : null;
+        if (!isset($_POST['name']) 
+            || !isset($_POST['description']) 
+            || !isset($_POST['image']) 
+            || !isset($_POST['productTypeId']) ) {
+            $this->view->goToManageProducts();
+            die;
+        }
         if (is_null($productId)) {
             $this->productModel->createProduct($_POST['name'], $_POST['description'], $_POST['image'], $_POST['productTypeId']);
         } else {

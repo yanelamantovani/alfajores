@@ -74,7 +74,9 @@ class UserController {
 
     function updateUser() {
         $this->authHelper->checkLoggedIn();
-        $this->model->updateUser($_POST['id'], $_POST['email'], $_POST['role']);
+        if (!empty($_POST['id']) && !empty($_POST['email']) && !empty($_POST['role'])){ 
+            $this->model->updateUser($_POST['id'], $_POST['email'], $_POST['role']);
+        }
         $this->view->goToManageUsers();
     }
 

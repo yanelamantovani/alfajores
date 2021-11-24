@@ -9,17 +9,17 @@
                 <h4>Ingresá</h4>
                 <form method="POST" action="verify">
                     <label for="email">Email</label>
-                    <input type="text" id="email" name="email"/>
+                    <input type="text" id="email" name="email" required/>
                     <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password"/>
+                    <input type="password" id="password" name="password" required/>
                     <button>Ingresar</button>
                 </form>
                 <h4>Creá tu cuenta</h4>
                 <form method="POST" action="signin">
                     <label for="email">Email</label>
-                    <input type="text" name="email"/>
+                    <input type="text" name="email" required/>
                     <label for="password">Contraseña</label>
-                    <input type="password" name="password"/>
+                    <input type="password" name="password" required/>
                     <button>Crear cuenta</button>
                 </form>
                 {$message}

@@ -39,6 +39,14 @@ class ProductTypeController {
     function createProductType() {
         $this->authHelper->checkLoggedIn();
         $productTypeId = $_POST['id'] !== '' ? $_POST['id'] : null;
+        if (!isset($_POST['name']) 
+            || !isset($_POST['description']) 
+            || !isset($_POST['price1']) 
+            || !isset($_POST['price6'])
+            || !isset($_POST['price12'])) {
+            $this->view->goToManageProductTypes();
+            die;
+        }
         if (is_null($productTypeId)) {
             $this->productTypeModel->createProductType($_POST['name'], $_POST['description'], $_POST['price1'], $_POST['price6'], $_POST['price12']);
         } else {
