@@ -7,7 +7,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
         form.addEventListener("submit", postComment);
     }
     
-    getComments();
+    let commentsView = document.querySelector("#comments");
+    if (commentsView) {
+        getComments();
+    }
 
     /*
         Borra un comentario cuyo ID es pasado cómo parámetro.
@@ -66,20 +69,27 @@ document.addEventListener("DOMContentLoaded", function(event) {
     /**
      * Clickear Buscar comentarios por rating.
      */
-    document.querySelector("#search").addEventListener("click", async function () {
-        let searchBy = document.querySelector("#searchBy").value;
-        console.log(`Searching comments searchBy=${searchBy}.`);
-        fetchComments(searchBy, null, null);
-    });
+    let search = document.querySelector("#search");
+    if (search) {
+        search.addEventListener("click", async function () {
+            let searchBy = document.querySelector("#searchBy").value;
+            console.log(`Searching comments searchBy=${searchBy}.`);
+            fetchComments(searchBy, null, null);
+        });
+    }
+    
 
     /**
      * Clickear Ordenar ordena los comentarios por el criterio y dirección seleccionados.
      */
-     document.querySelector("#sort").addEventListener("click", async function () {
-        let sortBy = document.querySelector("#sortBy").value;
-        let sortDirection = document.querySelector("#sortDirection").value;
-        fetchComments(null, sortBy, sortDirection);
-    });
+    let sort = document.querySelector("#sort");
+    if (sort) { 
+        sort.addEventListener("click", async function () {
+            let sortBy = document.querySelector("#sortBy").value;
+            let sortDirection = document.querySelector("#sortDirection").value;
+            fetchComments(null, sortBy, sortDirection);
+        });
+    }
 
     /**
      * Clickear Buscar pedidos, los busca y muestra el resultado en la table de pedidos.
@@ -143,7 +153,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
      * Muestra los pedidos.
      */
     function showComments(comments) {
-        let commentsView = document.querySelector("#comments");
         let isAdmin = document.querySelector("#role").value == 'ADMIN';
         let html = "<ul>";
         for (let index = 0; index < comments.length; index++) {

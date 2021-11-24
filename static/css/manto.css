@@ -269,6 +269,10 @@ footer ul a, .captcha-msg {
     height: 100%;
 }
 
+.content .product img {
+    height: auto;
+}
+
 figure.content {
     margin: 0;
 }

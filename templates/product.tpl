@@ -3,7 +3,7 @@
 <!-- Contenido -->
 <main id="main">
     <article class="content">
-        <section>
+        <section class="product">
             <h3>{$product->name}</h3>
             <h4>{$product->description}</h4>
             <img src="static/images/{$product->image}" alt="{$product->name}">

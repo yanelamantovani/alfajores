@@ -30,6 +30,7 @@ class UserController {
             $this->model->createUser($email, $password, 'USER');
             $this->view->showLogin("Usuario creado");
             //$this->doVerifyLogin($email, $_POST['password']);
+            $this->verifyLogin();
         } else {
             $this->view->showLogin("email y password no pueden estar vacios");
         }
@@ -58,8 +59,7 @@ class UserController {
             if ($user->role == 'ADMIN') {
                 $this->view->goToManageUsers();
             } else {
-                $this->view->showLogin("User ID".$_SESSION["user_id"]);
-                //header("Location: ".BASE_URL."home");
+                header("Location: ".BASE_URL."home");
             }
         } else {
             $this->view->showLogin("Acceso denegado");
