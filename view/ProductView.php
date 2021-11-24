@@ -1,24 +1,28 @@
 <?php
 
 require_once './libs/smarty-3.1.39/libs/Smarty.class.php';
+require_once './controller/AuthHelper.php';
 
 class ProductView {
 
     private $smarty;
+    private $authHelper;
 
     function __construct() {
         $this->smarty = new Smarty();
+        $this->authHelper = new AuthHelper();
     }
 
     function showProducts($products) {
-        $this->smarty->assign('loggedUsername', null);
+        $this->smarty->assign('loggedRole', $this->authHelper->getLoggedRole());
         $this->smarty->assign('highlighted', "productos");
         $this->smarty->assign('products', $products);
         $this->smarty->display('templates/products.tpl');
     }
 
     function showProduct($product) {
-        $this->smarty->assign('loggedUsername', null);
+        $this->smarty->assign('userId', $_SESSION["user_id"]);
+        $this->smarty->assign('loggedRole', $this->authHelper->getLoggedRole());
         $this->smarty->assign('highlighted', "productos");
         $this->smarty->assign('product', $product);
         $this->smarty->display('templates/product.tpl');

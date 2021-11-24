@@ -15,6 +15,41 @@ class CommentModel {
         return $comment; 
     }
 
+    function findCommentsByRating($rating) {
+        $sentence = $this->db->prepare("SELECT * FROM comment WHERE rating = ?");
+        $sentence->execute(array($rating));
+        $comment = $sentence->fetchAll(PDO::FETCH_OBJ);
+        return $comment; 
+    }
+
+    function findCommentsSortedByIdAsc() {
+        $sentence = $this->db->prepare("SELECT * FROM comment ORDER BY id ASC");
+        $sentence->execute();
+        $comment = $sentence->fetchAll(PDO::FETCH_OBJ);
+        return $comment; 
+    }
+
+    function findCommentsSortedByIdDesc() {
+        $sentence = $this->db->prepare("SELECT * FROM comment ORDER BY id DESC");
+        $sentence->execute();
+        $comment = $sentence->fetchAll(PDO::FETCH_OBJ);
+        return $comment; 
+    }
+
+    function findCommentsSortedByRatingAsc() {
+        $sentence = $this->db->prepare("SELECT * FROM comment ORDER BY rating ASC");
+        $sentence->execute();
+        $comment = $sentence->fetchAll(PDO::FETCH_OBJ);
+        return $comment; 
+    }
+
+    function findCommentsSortedByRatingDesc() {
+        $sentence = $this->db->prepare("SELECT * FROM comment ORDER BY rating DESC");
+        $sentence->execute();
+        $comment = $sentence->fetchAll(PDO::FETCH_OBJ);
+        return $comment; 
+    }
+
     function getComment($id) {
         $sentence = $this->db->prepare("SELECT * FROM comment WHERE id=?");
         $sentence->execute(array($id));
@@ -22,9 +57,9 @@ class CommentModel {
         return $comment; 
     }
 
-    function insertComment($comment, $userId, $productId, $rating) {
-        $sentence = $this->db->prepare("INSERT INTO comment(comment, user_id, product_id, rating) VALUES(?, ?, ?, ?)");
-        $sentence->execute(array($comment, $userId, $productId, $rating));
+    function insertComment($comment, $userId, $name, $productId, $rating) {
+        $sentence = $this->db->prepare("INSERT INTO comment(comment, user_id, name, product_id, rating) VALUES(?, ?, ?, ?, ?)");
+        $sentence->execute(array($comment, $userId, $name, $productId, $rating));
         return $this->db->lastInsertId();
     }
 

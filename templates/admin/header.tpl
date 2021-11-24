@@ -15,13 +15,14 @@
             <h1>MANTO Admin</h1>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 {if $active != null}
-                    <a href="admin/logout" class="btn btn-primary btn-sm">Logout</a>
+                    <a href="logout" class="btn btn-primary btn-sm">Logout</a>
                 {/if}
             </div>
             {if $active != null}
                 <ul class="nav nav-tabs">
                     <li class="nav-item"><a href="admin/manageProducts" class="nav-link text-dark {if $active == 'manageProducts'}active{/if}">Administrar Productos</a></li>
                     <li class="nav-item"><a href="admin/manageProductTypes" class="nav-link text-dark {if $active == 'manageProductTypes'}active{/if}">Administrar Categorías</a></li>
+                    <li class="nav-item"><a href="admin/manageUsers" class="nav-link text-dark {if $active == 'manageUsers'}active{/if}">Administrar Usuarios</a></li>
                 </ul>
             {/if}    
         </nav>

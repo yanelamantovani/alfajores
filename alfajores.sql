@@ -36,6 +36,7 @@ CREATE TABLE `alfajores`.`comment` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `comment` VARCHAR(560) NOT NULL,
   `user_id` INT NOT NULL,
+  `name` VARCHAR(560) NOT NULL,
   `product_id` INT NOT NULL,
   `rating` INT NOT NULL,
   PRIMARY KEY (`id`),

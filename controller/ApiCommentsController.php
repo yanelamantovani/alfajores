@@ -13,7 +13,25 @@ class ApiCommentsController{
     }
 
     function getComments(){
-        $comments = $this->model->getComments();
+        if (isset($_GET["rating"])) {
+            $comments = $this->model->findCommentsByRating($_GET["rating"]);    
+        } elseif (isset($_GET["sortBy"]) && isset($_GET["sortDirection"])) {
+            if ($_GET["sortBy"] == "id") {
+                if ($_GET["sortDirection"] == "ASC") {
+                    $comments = $this->model->findCommentsSortedByIdAsc();
+                } elseif ($_GET["sortDirection"] == "DESC") {
+                    $comments = $this->model->findCommentsSortedByIdDesc();
+                }
+            } elseif ($_GET["sortBy"] == "rating") {
+                if ($_GET["sortDirection"] == "ASC") {
+                    $comments = $this->model->findCommentsSortedByRatingAsc();
+                } elseif ($_GET["sortDirection"] == "DESC") {
+                    $comments = $this->model->findCommentsSortedByRatingDesc();
+                }
+            }
+        } else {
+            $comments = $this->model->getComments();
+        }
         return $this->view->response($comments, 200);
     }
 
@@ -40,8 +58,7 @@ class ApiCommentsController{
 
     function insertComment($params = null) {
         $body = $this->getBody();
-        // TODO: VALIDACIONES -> 400 (Bad Request)
-        $id = $this->model->insertComment($body->comment, $body->user_id, $body->product_id, $body->rating);
+        $id = $this->model->insertComment($body->comment, $body->user_id, $body->name, $body->product_id, $body->rating);
         if ($id != 0) {
             $this->view->response("El comentario fue creado con el id=$id.", 200);
         } else {
@@ -52,7 +69,6 @@ class ApiCommentsController{
     function updateComment($params = null) {
         $commentId = $params[':ID'];
         $body = $this->getBody();
-        // TODO: VALIDACIONES -> 400 (Bad Request)
         $comment = $this->model->getComment($commentId);
         if ($comment) {
             $this->model->updateComment($commentId, $body->comment, $body->user_id, $body->product_id, $body->rating);

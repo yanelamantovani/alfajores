@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="static/css/manto.css">
     <script type="text/javascript" src="static/js/topnav.js"></script>
-    <script type="text/javascript" src="static/js/model.js"></script>
-    <script type="text/javascript" src="static/js/orders.js"></script>
+    <script type="text/javascript" src="static/js/comments.js"></script>
 </head>
 <body>
     <!-- Header -->

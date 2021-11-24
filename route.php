@@ -3,8 +3,8 @@
     require_once 'controller/HomeController.php';
     require_once 'controller/ProductController.php';
     require_once 'controller/ProductTypeController.php';
-    require_once 'controller/LoginController.php';
-
+    require_once 'controller/UserController.php';
+    
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
     if (!empty($_GET['action'])) {
@@ -18,8 +18,8 @@
     $homeController = new HomeController();
     $productController = new ProductController();
     $productTypeController = new ProductTypeController();
-    $loginController = new LoginController();
-
+    $userController = new UserController();
+    
     switch ($params[0]) {
         case 'home': 
             $homeController->showHome(); 
@@ -45,14 +45,17 @@
         case 'login':
             if (empty($params[1])) {
                 // /login Formularios de login y registro
-                $loginController->showLogin(); 
+                $userController->showLogin(); 
             } 
             break;
         case 'logout': 
-            $loginController->logout(); 
+            $userController->logout(); 
             break;
         case 'verify': 
-            $loginController->verifyLogin(); 
+            $userController->verifyLogin(); 
+            break;
+        case 'signin': 
+            $userController->signIn(); 
             break;
         // /admin
         case 'admin': 
@@ -63,11 +66,17 @@
                 case 'manageProductTypes':
                     $productTypeController->showManageProductTypes(isset($params[2]) ? intval($params[2]) : null); 
                     break;
+                case 'manageUsers':
+                    $userController->showManageUsers(isset($params[2]) ? intval($params[2]) : null); 
+                    break;
                 case 'createProduct':
                     $productController->createProduct(); 
                     break;
                 case 'createProductType':
                     $productTypeController->createProductType(); 
+                    break;        
+                case 'updateUser':
+                    $userController->updateUser(); 
                     break;        
                 case 'deleteProduct':
                     $productController->deleteProduct($params[2]); 
@@ -75,6 +84,9 @@
                 case 'deleteProductType':
                     $productTypeController->deleteProductType($params[2]); 
                     break;        
+                case 'deleteUser':
+                    $userController->deleteUser($params[2]); 
+                    break;            
                 default: 
                     echo('404 Page not found'); 
                     break;

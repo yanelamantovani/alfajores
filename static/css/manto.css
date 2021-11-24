@@ -385,6 +385,19 @@ figure.content {
     border: none;
 }
 
+.comments {  
+  padding: 0 3em 1em 3em;
+}
+
+.comments textarea {  
+    margin-top: 0.5em;
+    width: 100%;
+  }
+
+ .comments .fa {
+     display: inline;
+ } 
+
 @media only screen and (min-width: 480px)  {
     
     html {

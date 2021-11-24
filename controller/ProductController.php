@@ -26,7 +26,7 @@ class ProductController {
 
     function showProduct($productId) {
         $product = $this->productModel->getProduct($productId);
-        $this->view->showProduct($product);
+        $this->view->showProduct($product, $this->authHelper->getLoggedRole());
     }
 
     function showManageProducts($index) {
