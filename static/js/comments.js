@@ -92,22 +92,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     /**
-     * Clickear Buscar pedidos, los busca y muestra el resultado en la table de pedidos.
-     */
-    // document.querySelector("#paginate").addEventListener("click", async function () {
-    //     let page = document.querySelector("#pageNumber").value;
-    //     let limit = document.querySelector("#pageLimit").value;
-    //     if (limit !== "ALL") {
-    //         console.log(`Paginating comments page=${page}, limit=${limit}.`);
-    //         fetchComments(null, null, page, limit, false);
-    //     } else {
-    //         console.log(`Loading all comments.`);
-    //         fetchComments(null, null, null, null, false);
-    //     }
-        
-    // });
-
-    /**
      * Returno la url para hacer un get
      */
     async function fetchComments(searchBy, sortBy, sortDirection) {
