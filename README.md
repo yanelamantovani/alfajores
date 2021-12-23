@@ -1,5 +1,7 @@
 # alfajores
-Trabajo Práctico Especial de Web 2 - TUDAI - UNICEN
+Trabajo Práctico Especial de Web 2 (backend). 
+Tecnicatura Universitaria en Desarrollo de Aplicaciones Informáticas (TUDAI). 
+Universidad Nacional del Centro de la Pcia. de Bs. As. (UNICEN).
 
 1. Clonar el repositorio dentro de una carpeta servida en apache.
 2. Conectarse a DB MySQL y correr 'alfajores.sql'.
